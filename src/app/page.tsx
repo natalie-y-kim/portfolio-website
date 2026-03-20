@@ -8,8 +8,8 @@ export default function PortfolioWebsite() {
       impact:
         "Designed backend APIs, deployed services, and handled service-to-service data consistency and cloud infrastructure.",
       tech: ["FastAPI", "Docker", "GCP", "MySQL", "Swagger/OpenAPI"],
-      github: "#",
-      demo: "#",
+      github: "https://github.com/UNKNOWN-CloudApp",
+      demo: "https://docs.google.com/presentation/d/1UNNLGCHgDQ3ssJakrUk_2CiVD0NifCsW1QxfWI1ihzc/edit?slide=id.g3af795cd71b_0_0#slide=id.g3af795cd71b_0_0",
     },
     {
       title: "The Humor Project",
@@ -19,8 +19,8 @@ export default function PortfolioWebsite() {
       impact:
         "Implemented backend and product logic around image uploads, user authentication, and voting workflows.",
       tech: ["Next.js", "Supabase", "Vercel", "TypeScript"],
-      github: "#",
-      demo: "#",
+      github: "https://github.com/natalie-y-kim/the-humor-project",
+      demo: "https://the-humor-project-tau.vercel.app/",
     },
     {
       title: "AI Internship Project",
@@ -30,8 +30,8 @@ export default function PortfolioWebsite() {
       impact:
         "Improved data handling reliability across multimodal inputs and contributed to model training workflows.",
       tech: ["Python", "Whisper", "OCR", "PyTorch", "ResNet"],
-      github: "#",
-      demo: "#",
+      github: "https://github.com/TechX-Resources/AIforDisinformation",
+      demo: "https://docs.google.com/presentation/d/1obTiX2GlQWbqDVPROkQStJp7sONw3qlFU8kWWWHyGAU/edit?slide=id.p#slide=id.p",
     },
   ];
 
@@ -82,7 +82,7 @@ export default function PortfolioWebsite() {
                   Contact Me
                 </a>
                 <a
-                  href="#"
+                  href="https://drive.google.com/file/d/1jR43Mu6di34k-XAnAryRYXvp1FYZdC0j/view?usp=sharing"
                   className="rounded-2xl border border-slate-300 px-5 py-3 text-sm font-medium text-slate-700 transition hover:bg-slate-50"
                 >
                   Resume
@@ -98,7 +98,7 @@ export default function PortfolioWebsite() {
                   Interested in software engineering, AI/ML, and product-focused
                   backend development
                 </li>
-                <li>Looking for new grad software engineering opportunities</li>
+                <li>Looking for new grad opportunities</li>
               </ul>
             </div>
           </div>
