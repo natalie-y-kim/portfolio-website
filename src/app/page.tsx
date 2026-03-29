@@ -1,4 +1,24 @@
+"use client";
+
+import { motion } from 'framer-motion';
+import { useState } from 'react';
+import NavBar from '../components/NavBar';
+
 export default function PortfolioWebsite() {
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // For now, just log and set submitted
+    console.log(formData);
+    setSubmitted(true);
+    // In real app, send to backend or email service
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
   const projects = [
     {
       title: "Student Subletting Platform",
@@ -51,18 +71,24 @@ export default function PortfolioWebsite() {
   ];
 
   return (
-    <main className="min-h-screen bg-white text-slate-900">
-      <section className="border-b border-slate-200">
+    <main className="min-h-screen bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100">
+      <NavBar />
+      <motion.section
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="border-b border-slate-200 dark:border-slate-700 pt-16"
+      >
         <div className="mx-auto max-w-6xl px-6 py-20 md:px-10 lg:px-12">
           <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
             <div>
-              <p className="mb-4 text-sm font-medium uppercase tracking-[0.2em] text-slate-500">
+              <p className="mb-4 text-sm font-medium uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
                 Columbia University • Computer Science
               </p>
-              <h1 className="max-w-3xl text-4xl font-semibold tracking-tight text-slate-950 md:text-6xl">
+              <h1 className="max-w-3xl text-4xl font-semibold tracking-tight text-slate-950 dark:text-white md:text-6xl">
                 Natalie Kim
               </h1>
-              <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-600 md:text-xl">
+              <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-600 dark:text-slate-300 md:text-xl">
                 Software engineer focused on backend systems, AI-driven
                 products, and full-stack applications. I build reliable tools
                 that turn complex ideas into usable products.
@@ -71,28 +97,28 @@ export default function PortfolioWebsite() {
               <div className="mt-8 flex flex-wrap gap-3">
                 <a
                   href="#projects"
-                  className="rounded-2xl bg-slate-950 px-5 py-3 text-sm font-medium text-white transition hover:opacity-90"
+                  className="rounded-2xl bg-slate-950 dark:bg-slate-100 px-5 py-3 text-sm font-medium text-white dark:text-slate-900 transition hover:opacity-90"
                 >
                   View Projects
                 </a>
                 <a
                   href="#contact"
-                  className="rounded-2xl border border-slate-300 px-5 py-3 text-sm font-medium text-slate-700 transition hover:bg-slate-50"
+                  className="rounded-2xl border border-slate-300 dark:border-slate-600 px-5 py-3 text-sm font-medium text-slate-700 dark:text-slate-300 transition hover:bg-slate-50 dark:hover:bg-slate-800"
                 >
                   Contact Me
                 </a>
                 <a
                   href="https://drive.google.com/file/d/1jR43Mu6di34k-XAnAryRYXvp1FYZdC0j/view?usp=sharing"
-                  className="rounded-2xl border border-slate-300 px-5 py-3 text-sm font-medium text-slate-700 transition hover:bg-slate-50"
+                  className="rounded-2xl border border-slate-300 dark:border-slate-600 px-5 py-3 text-sm font-medium text-slate-700 dark:text-slate-300 transition hover:bg-slate-50 dark:hover:bg-slate-800"
                 >
                   Resume
                 </a>
               </div>
             </div>
 
-            <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
-              <p className="text-sm font-medium text-slate-500">Currently</p>
-              <ul className="mt-4 space-y-4 text-sm leading-6 text-slate-700">
+            <div className="rounded-3xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 p-6 shadow-sm">
+              <p className="text-sm font-medium text-slate-500 dark:text-slate-400">Currently</p>
+              <ul className="mt-4 space-y-4 text-sm leading-6 text-slate-700 dark:text-slate-300">
                 <li>Senior at Columbia University studying Computer Science</li>
                 <li>
                   Interested in software engineering, AI/ML, and product-focused
@@ -103,21 +129,28 @@ export default function PortfolioWebsite() {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
-      <section>
+      <motion.section
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+        viewport={{ once: true }}
+        id="about"
+        className=""
+      >
         <div className="mx-auto max-w-6xl px-6 py-16 md:px-10 lg:px-12">
           <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr]">
             <div>
-              <p className="text-sm font-medium uppercase tracking-[0.2em] text-slate-500">
+              <p className="text-sm font-medium uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
                 About
               </p>
-              <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-950">
+              <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-950 dark:text-white">
                 I like building systems that are practical, clear, and scalable.
               </h2>
             </div>
             <div>
-              <p className="text-base leading-8 text-slate-600">
+              <p className="text-base leading-8 text-slate-600 dark:text-slate-300">
                 I&apos;m a senior studying Computer Science at Columbia
                 University, with experience across AI pipelines, backend
                 services, and full-stack product development. My work has
@@ -125,7 +158,7 @@ export default function PortfolioWebsite() {
                 processing pipelines, and user-facing applications that combine
                 solid engineering with thoughtful product design.
               </p>
-              <p className="mt-5 text-base leading-8 text-slate-600">
+              <p className="mt-5 text-base leading-8 text-slate-600 dark:text-slate-300">
                 I&apos;m especially interested in roles where I can work on
                 backend infrastructure, AI-enabled workflows, and products that
                 have real impact for users.
@@ -133,20 +166,27 @@ export default function PortfolioWebsite() {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
-      <section id="projects" className="bg-slate-50">
+      <motion.section
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+        viewport={{ once: true }}
+        id="projects"
+        className="bg-slate-50 dark:bg-slate-800"
+      >
         <div className="mx-auto max-w-6xl px-6 py-16 md:px-10 lg:px-12">
           <div className="mb-10 flex items-end justify-between gap-6">
             <div>
-              <p className="text-sm font-medium uppercase tracking-[0.2em] text-slate-500">
+              <p className="text-sm font-medium uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
                 Selected Work
               </p>
-              <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-950">
+              <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-950 dark:text-white">
                 Projects
               </h2>
             </div>
-            <p className="hidden max-w-xl text-sm leading-7 text-slate-500 md:block">
+            <p className="hidden max-w-xl text-sm leading-7 text-slate-500 dark:text-slate-400 md:block">
               A few projects that reflect my interest in backend engineering,
               applied AI, and product-focused development.
             </p>
@@ -154,23 +194,27 @@ export default function PortfolioWebsite() {
 
           <div className="grid gap-6">
             {projects.map((project) => (
-              <div
+              <motion.div
                 key={project.title}
-                className="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+                className="rounded-3xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-7 shadow-sm"
               >
                 <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
                   <div className="max-w-3xl">
-                    <h3 className="text-2xl font-semibold text-slate-950">
+                    <h3 className="text-2xl font-semibold text-slate-950 dark:text-white">
                       {project.title}
                     </h3>
-                    <p className="mt-2 text-sm font-medium text-slate-500">
+                    <p className="mt-2 text-sm font-medium text-slate-500 dark:text-slate-400">
                       {project.subtitle}
                     </p>
-                    <p className="mt-4 text-base leading-8 text-slate-600">
+                    <p className="mt-4 text-base leading-8 text-slate-600 dark:text-slate-300">
                       {project.description}
                     </p>
-                    <p className="mt-4 text-base leading-8 text-slate-700">
-                      <span className="font-medium text-slate-900">
+                    <p className="mt-4 text-base leading-8 text-slate-700 dark:text-slate-300">
+                      <span className="font-medium text-slate-900 dark:text-slate-100">
                         What I contributed:
                       </span>{" "}
                       {project.impact}
@@ -180,7 +224,7 @@ export default function PortfolioWebsite() {
                       {project.tech.map((item) => (
                         <span
                           key={item}
-                          className="rounded-full border border-slate-200 px-3 py-1 text-sm text-slate-600"
+                          className="rounded-full border border-slate-200 dark:border-slate-600 px-3 py-1 text-sm text-slate-600 dark:text-slate-300"
                         >
                           {item}
                         </span>
@@ -191,32 +235,39 @@ export default function PortfolioWebsite() {
                   <div className="flex shrink-0 gap-3">
                     <a
                       href={project.github}
-                      className="rounded-2xl border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50"
+                      className="rounded-2xl border border-slate-300 dark:border-slate-600 px-4 py-2 text-sm font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800"
                     >
                       GitHub
                     </a>
                     <a
                       href={project.demo}
-                      className="rounded-2xl bg-slate-950 px-4 py-2 text-sm font-medium text-white hover:opacity-90"
+                      className="rounded-2xl bg-slate-950 dark:bg-slate-100 px-4 py-2 text-sm font-medium text-white dark:text-slate-900 hover:opacity-90"
                     >
                       Demo
                     </a>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
-      <section>
+      <motion.section
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+        viewport={{ once: true }}
+        id="skills"
+        className=""
+      >
         <div className="mx-auto max-w-6xl px-6 py-16 md:px-10 lg:px-12">
           <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
             <div>
-              <p className="text-sm font-medium uppercase tracking-[0.2em] text-slate-500">
+              <p className="text-sm font-medium uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
                 Skills
               </p>
-              <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-950">
+              <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-950 dark:text-white">
                 Tools and technologies
               </h2>
             </div>
@@ -225,7 +276,7 @@ export default function PortfolioWebsite() {
               {skills.map((skill) => (
                 <span
                   key={skill}
-                  className="rounded-2xl bg-slate-100 px-4 py-2 text-sm font-medium text-slate-700"
+                  className="rounded-2xl bg-slate-100 dark:bg-slate-800 px-4 py-2 text-sm font-medium text-slate-700 dark:text-slate-300"
                 >
                   {skill}
                 </span>
@@ -233,48 +284,73 @@ export default function PortfolioWebsite() {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
-      <section id="contact" className="border-t border-slate-200">
+      <motion.section
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+        viewport={{ once: true }}
+        id="contact"
+        className="border-t border-slate-200 dark:border-slate-700"
+      >
         <div className="mx-auto max-w-6xl px-6 py-16 md:px-10 lg:px-12">
           <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
             <div>
-              <p className="text-sm font-medium uppercase tracking-[0.2em] text-slate-500">
+              <p className="text-sm font-medium uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
                 Contact
               </p>
-              <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-950">
+              <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-950 dark:text-white">
                 Let&apos;s connect.
               </h2>
-              <p className="mt-4 max-w-2xl text-base leading-8 text-slate-600">
+              <p className="mt-4 max-w-2xl text-base leading-8 text-slate-600 dark:text-slate-300">
                 I&apos;m currently looking for software engineering opportunities.
                 Feel free to reach out about new grad roles, internships, or
                 projects.
               </p>
+              {submitted && (
+                <p className="mt-4 text-green-600 dark:text-green-400">Thank you for your message! I'll get back to you soon.</p>
+              )}
             </div>
 
-            <div className="flex flex-col gap-3 text-sm text-slate-700">
-              <a
-                href="mailto:nk3165@columbia.edu"
-                className="hover:text-slate-950"
+            <form onSubmit={handleSubmit} className="flex flex-col gap-4 w-full max-w-md">
+              <input
+                type="text"
+                name="name"
+                placeholder="Your Name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+                className="px-4 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-800 text-slate-900 dark:text-white"
+              />
+              <input
+                type="email"
+                name="email"
+                placeholder="Your Email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+                className="px-4 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-800 text-slate-900 dark:text-white"
+              />
+              <textarea
+                name="message"
+                placeholder="Your Message"
+                value={formData.message}
+                onChange={handleChange}
+                required
+                rows={4}
+                className="px-4 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-800 text-slate-900 dark:text-white"
+              />
+              <button
+                type="submit"
+                className="px-6 py-2 bg-slate-950 dark:bg-slate-100 text-white dark:text-slate-900 rounded-lg hover:opacity-90 transition"
               >
-                nk3165@columbia.edu
-              </a>
-              <a
-                href="https://github.com/natalie-y-kim"
-                className="hover:text-slate-950"
-              >
-                GitHub
-              </a>
-              <a
-                href="https://www.linkedin.com/in/nataliekimmm/"
-                className="hover:text-slate-950"
-              >
-                LinkedIn
-              </a>
-            </div>
+                Send Message
+              </button>
+            </form>
           </div>
         </div>
-      </section>
+      </motion.section>
     </main>
   );
 }
