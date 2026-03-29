@@ -1,24 +1,9 @@
 "use client";
 
 import { motion } from 'framer-motion';
-import { useState } from 'react';
 import NavBar from '../components/NavBar';
 
 export default function PortfolioWebsite() {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // For now, just log and set submitted
-    console.log(formData);
-    setSubmitted(true);
-    // In real app, send to backend or email service
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
   const projects = [
     {
       title: "Student Subletting Platform",
@@ -308,46 +293,28 @@ export default function PortfolioWebsite() {
                 Feel free to reach out about new grad roles, internships, or
                 projects.
               </p>
-              {submitted && (
-                <p className="mt-4 text-green-600 dark:text-green-400">Thank you for your message! I'll get back to you soon.</p>
-              )}
             </div>
 
-            <form onSubmit={handleSubmit} className="flex flex-col gap-4 w-full max-w-md">
-              <input
-                type="text"
-                name="name"
-                placeholder="Your Name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-                className="px-4 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-800 text-slate-900 dark:text-white"
-              />
-              <input
-                type="email"
-                name="email"
-                placeholder="Your Email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-                className="px-4 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-800 text-slate-900 dark:text-white"
-              />
-              <textarea
-                name="message"
-                placeholder="Your Message"
-                value={formData.message}
-                onChange={handleChange}
-                required
-                rows={4}
-                className="px-4 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-800 text-slate-900 dark:text-white"
-              />
-              <button
-                type="submit"
-                className="px-6 py-2 bg-purple-600 dark:bg-purple-500 text-white rounded-lg hover:opacity-90 transition"
+            <div className="flex flex-col gap-3 text-sm text-slate-700 dark:text-slate-300">
+              <a
+                href="mailto:nk3165@columbia.edu"
+                className="hover:text-slate-950 dark:hover:text-white"
               >
-                Send Message
-              </button>
-            </form>
+                nk3165@columbia.edu
+              </a>
+              <a
+                href="https://github.com/natalie-y-kim"
+                className="hover:text-slate-950 dark:hover:text-white"
+              >
+                GitHub
+              </a>
+              <a
+                href="https://www.linkedin.com/in/nataliekimmm/"
+                className="hover:text-slate-950 dark:hover:text-white"
+              >
+                LinkedIn
+              </a>
+            </div>
           </div>
         </div>
       </motion.section>
