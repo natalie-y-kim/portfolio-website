@@ -71,7 +71,7 @@ export default function PortfolioWebsite() {
   ];
 
   return (
-    <main className="min-h-screen bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100">
+    <main className="min-h-screen bg-purple-50 dark:bg-purple-900 text-slate-900 dark:text-slate-100">
       <NavBar />
       <motion.section
         initial={{ opacity: 0, y: 20 }}
@@ -97,7 +97,7 @@ export default function PortfolioWebsite() {
               <div className="mt-8 flex flex-wrap gap-3">
                 <a
                   href="#projects"
-                  className="rounded-2xl bg-slate-950 dark:bg-slate-100 px-5 py-3 text-sm font-medium text-white dark:text-slate-900 transition hover:opacity-90"
+                  className="rounded-2xl bg-purple-600 dark:bg-purple-500 px-5 py-3 text-sm font-medium text-white transition hover:opacity-90"
                 >
                   View Projects
                 </a>
@@ -116,7 +116,7 @@ export default function PortfolioWebsite() {
               </div>
             </div>
 
-            <div className="rounded-3xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 p-6 shadow-sm">
+            <div className="rounded-3xl border border-slate-200 dark:border-slate-700 bg-purple-100 dark:bg-purple-800 p-6 shadow-sm">
               <p className="text-sm font-medium text-slate-500 dark:text-slate-400">Currently</p>
               <ul className="mt-4 space-y-4 text-sm leading-6 text-slate-700 dark:text-slate-300">
                 <li>Senior at Columbia University studying Computer Science</li>
@@ -174,7 +174,7 @@ export default function PortfolioWebsite() {
         transition={{ duration: 0.6, delay: 0.2 }}
         viewport={{ once: true }}
         id="projects"
-        className="bg-slate-50 dark:bg-slate-800"
+        className="bg-purple-100 dark:bg-purple-800"
       >
         <div className="mx-auto max-w-6xl px-6 py-16 md:px-10 lg:px-12">
           <div className="mb-10 flex items-end justify-between gap-6">
@@ -200,7 +200,7 @@ export default function PortfolioWebsite() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
                 viewport={{ once: true }}
-                className="rounded-3xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-7 shadow-sm"
+                className="rounded-3xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-purple-800 p-7 shadow-sm"
               >
                 <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
                   <div className="max-w-3xl">
@@ -241,7 +241,7 @@ export default function PortfolioWebsite() {
                     </a>
                     <a
                       href={project.demo}
-                      className="rounded-2xl bg-slate-950 dark:bg-slate-100 px-4 py-2 text-sm font-medium text-white dark:text-slate-900 hover:opacity-90"
+                      className="rounded-2xl bg-purple-600 dark:bg-purple-500 px-4 py-2 text-sm font-medium text-white hover:opacity-90"
                     >
                       Demo
                     </a>
@@ -343,7 +343,7 @@ export default function PortfolioWebsite() {
               />
               <button
                 type="submit"
-                className="px-6 py-2 bg-slate-950 dark:bg-slate-100 text-white dark:text-slate-900 rounded-lg hover:opacity-90 transition"
+                className="px-6 py-2 bg-purple-600 dark:bg-purple-500 text-white rounded-lg hover:opacity-90 transition"
               >
                 Send Message
               </button>
